@@ -1,0 +1,28 @@
+{
+  "name": "jobstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forLoop94/JobStack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/forLoop94/JobStack/issues"
+  },
+  "homepage": "https://github.com/forLoop94/JobStack#readme",
+  "dependencies": {
+    "datauri": "^4.1.0",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.3",
+    "nanoid": "^5.1.5",
+    "nodemon": "^3.1.10"
+  }
+}
