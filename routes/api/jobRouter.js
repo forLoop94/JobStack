@@ -1,8 +1,21 @@
 import { Router } from "express";
 const router = Router();
 
-import { getAllJobs } from "../../controllers/jobController.js";
+import {
+  getAllJobs,
+  getJob,
+  createJob,
+  updateJob,
+  deleteJob,
+} from "../../controllers/jobController.js";
+import { checkForTestUser } from "../../middlewares/authenticateUser.js";
 
-router.get("/", getAllJobs);
+router.route("/").get(getAllJobs).post(checkForTestUser, createJob);
+
+router
+  .route("/:id")
+  .get(getJob)
+  .patch(checkForTestUser, updateJob)
+  .delete(checkForTestUser, deleteJob);
 
 export default router;
