@@ -6,6 +6,9 @@ import { createJWT } from "../utils/token.js";
 import { UnauthenticatedError } from "../errors/customError.js";
 
 export const register = async (req, res) => {
+  const isFirstAccount = (await User.countDocuments()) === 0;
+  req.body.role = isFirstAccount ? "admin" : "user";
+
   const hashedPassword = await hashPassword(req.body.password);
   req.body.password = hashedPassword;
 
