@@ -1,7 +1,28 @@
-//import { StatusCodes } from "http-status-codes";
+import { StatusCodes } from "http-status-codes";
 import User from "../models/UserModel.js";
+import cloudinary from "cloudinary";
+import { formatImage } from "../middleware/multerMiddleware.js";
 
 export const getUsers = async (req, res) => {
   const users = await User.find();
   res.status(200).json(users);
+};
+
+export const updateUser = async (req, res) => {
+  const newUser = { ...req.body };
+  delete newUser.password;
+
+  if (req.file) {
+    const file = formatImage(req.file);
+    const response = await cloudinary.v2.uploader.upload(file);
+    newUser.avatar = response.secure_url;
+    newUser.avatarPublicId = response.public_id;
+  }
+
+  const updatedUser = await User.findByIdAndUpdate(req.user.userId, newUser);
+
+  if (req.file && updatedUser.avartarPublicId) {
+    await cloudinary.v2.uploader.destroy(updatedUser.avartarPublicId);
+  }
+  res.status(StatusCodes.OK).json({ msg: "update user" });
 };
