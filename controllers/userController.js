@@ -8,6 +8,17 @@ export const getUsers = async (req, res) => {
   res.status(200).json(users);
 };
 
+export const getCurrentUser = async (req, res) => {
+  const user = await User.findOne({ _id: req.user.userId });
+  const userWithoutPassword = user.toJSON();
+  res.status(StatusCodes.OK).json({ user: userWithoutPassword });
+};
+
+export const getApplicationStats = async (req, res) => {
+  const users = await User.countDocuments();
+  res.status(StatusCodes.OK).json({ users });
+};
+
 export const updateUser = async (req, res) => {
   const newUser = { ...req.body };
   delete newUser.password;
