@@ -1,7 +1,8 @@
 import { StatusCodes } from "http-status-codes";
 import User from "../models/UserModel.js";
 import cloudinary from "cloudinary";
-import { formatImage } from "../middleware/multerMiddleware.js";
+import { formatImage } from "../middleware/multer.js";
+import Job from "../models/jobModel.js";
 
 export const getUsers = async (req, res) => {
   const users = await User.find();
@@ -16,7 +17,8 @@ export const getCurrentUser = async (req, res) => {
 
 export const getApplicationStats = async (req, res) => {
   const users = await User.countDocuments();
-  res.status(StatusCodes.OK).json({ users });
+  const jobs = await Job.countDocuments();
+  res.status(StatusCodes.OK).json({ users, jobs });
 };
 
 export const updateUser = async (req, res) => {

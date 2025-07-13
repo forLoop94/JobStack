@@ -3,7 +3,7 @@ import {
   UnauthorizedError,
   BadRequestError,
 } from "../errors/customError.js";
-import { verifyJWT } from "../utils/tokenUtil.js";
+import { verifyJWT } from "../utils/token.js";
 
 export const authenticateUser = (req, res, next) => {
   const { token } = req.cookies;
