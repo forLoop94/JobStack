@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { JOB_STATUS, JOB_TYPE } from "../utils/contants.js";
+import { JOB_STATUS, JOB_TYPE } from "../utils/constants.js";
 
 const JobSchema = new mongoose.Schema(
   {
@@ -8,7 +8,7 @@ const JobSchema = new mongoose.Schema(
     jobStatus: {
       type: String,
       enum: Object.values(JOB_STATUS),
-      default: JOB_STATUS.pending,
+      default: JOB_STATUS.PENDING,
     },
     jobType: {
       type: String,

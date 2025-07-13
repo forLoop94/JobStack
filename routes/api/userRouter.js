@@ -6,7 +6,7 @@ import {
   updateUser,
 } from "../../controllers/userController.js";
 
-import upload from "../middleware/multerMiddleware.js";
+import upload from "../../middlewares/multer.js";
 import {
   authorizePermissions,
   checkForTestUser,
