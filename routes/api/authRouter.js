@@ -12,7 +12,7 @@ const apiLimiter = rateLimiter({
 const router = Router();
 
 router.post("/register", apiLimiter, register);
-router.post("/login", apiLimiter, authenticateUser, login);
+router.post("/login", apiLimiter, login);
 router.get("/logout", logout);
 
 export default router;
