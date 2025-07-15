@@ -11,6 +11,7 @@ const Error = () => {
           <img src={img} alt="not found" />
           <h3>ohh! page not found</h3>
           <p>We can&apos;t seem to find the page you are looking for</p>
+          <Link to="/">Back Home</Link>
         </div>
       </Wrapper>
     );
@@ -19,6 +20,7 @@ const Error = () => {
   return (
     <div>
       <h3>Something went wrong!!!</h3>
+      <Link to="/">Back Home</Link>
     </div>
   );
 };
