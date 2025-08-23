@@ -17,7 +17,7 @@ const Wrapper = styled.section`
     margin-top: -3rem;
   }
 
-  h1 {
+  h2 {
     font-weight: 700;
     span {
       color: var(--primary-500);
@@ -52,6 +52,7 @@ const Wrapper = styled.section`
 
     .main-img {
       display: block;
+      width: 140%;
     }
   }
 `;

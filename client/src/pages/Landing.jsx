@@ -1,5 +1,5 @@
 import Wrapper from "../assets/wrappers/LandingPage";
-import main from "../assets/images/main.svg";
+import main from "../assets/images/main-alternative.svg";
 import { Logo } from "../components";
 import { Link } from "react-router-dom";
 
@@ -11,14 +11,13 @@ const Landing = () => {
       </nav>
       <div className="container page">
         <div className="info">
-          <h1>
-            Job <span>Tracking</span> App
-          </h1>
+          <h2>
+            Job <span>Monitoring</span> App
+          </h2>
           <p>
-            Jobify is an intuitive job application tracker designed to
-            streamline your job search. Stay organized with a user-friendly
-            interface that allows you to log and monitor your job applications
-            effortlessly.
+            Jobstack is a smart job monitoring tool built to simplify your
+            search. Keep everything organized with an easy interface that lets
+            you record and follow your applications with ease.
           </p>
           <Link to="/register" className="btn register-link">
             Register
