@@ -11,6 +11,7 @@ import {
   authorizePermissions,
   checkForTestUser,
 } from "../../middlewares/authenticateUser.js";
+import { validateUpdateUserInput } from "../../middlewares/validationMiddleware.js";
 
 const router = Router();
 
@@ -25,6 +26,7 @@ router.patch(
   "/update-user",
   checkForTestUser,
   upload.single("avatar"),
+  validateUpdateUserInput,
   updateUser
 );
 

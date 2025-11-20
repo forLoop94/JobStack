@@ -10,6 +10,10 @@ import {
   showStats,
 } from "../../controllers/jobController.js";
 import { checkForTestUser } from "../../middlewares/authenticateUser.js";
+import {
+  validateIdParam,
+  validateJobInput,
+} from "../../middlewares/validationMiddleware.js";
 
 router.route("/").get(getAllJobs).post(checkForTestUser, createJob);
 
@@ -17,8 +21,8 @@ router.route("/stats").get(showStats);
 
 router
   .route("/:id")
-  .get(getJob)
-  .patch(checkForTestUser, updateJob)
-  .delete(checkForTestUser, deleteJob);
+  .get(validateIdParam, getJob)
+  .patch(checkForTestUser, validateJobInput, validateIdParam, updateJob)
+  .delete(checkForTestUser, validateIdParam, deleteJob);
 
 export default router;
