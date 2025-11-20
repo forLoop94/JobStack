@@ -6,8 +6,9 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      output: {
-        manualChunks: {},
+      onwarn(warning, warn) {
+        if (warning.code === "THIS_IS_UNDEFINED") return;
+        warn(warning);
       },
     },
   },
