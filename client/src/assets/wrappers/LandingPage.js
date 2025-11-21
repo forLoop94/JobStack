@@ -52,7 +52,7 @@ const Wrapper = styled.section`
 
     .main-img {
       display: block;
-      width: 140%;
+      width: 100%;
     }
   }
 `;
